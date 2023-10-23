@@ -172,24 +172,35 @@ main {
                     margin-bottom: 10px;
                     padding-left: 10px;
                     font-size: 18px;
+                    // box-shadow: 0 0 40px 1px black;
                 }
 
-                .btn {
+                .btn,.btn2 {
                     width: 100%;
                     display: flex;
                     justify-content: end;
                     margin-top: 10px;
                     margin-bottom: 10px;
                     font-family: Verdana, Geneva, sans-serif;
+                    cursor: pointer;
 
                     >div {
                         background-color: $main;
-                        width: fit-content;
-                        padding: 10px 30px;
+                        // width: fit-content;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;align-items: center;
+                        // padding: 10px 30px;
 
-                        a {
+                        a{
+                            display: flex;justify-content: center;align-items: center;
+                            width: 100%;
+
+                            height: 100%;
+                            padding: 10px 30px;
                             text-decoration: none;
                             color: $trinary;
+                            border: 1px solid white;
                         }
                     }
                 }
@@ -199,7 +210,7 @@ main {
                     display: flex;
                     justify-content: end;
                     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-                    margin-bottom: 100px;
+                    margin-bottom: 50px;
                     cursor: pointer;
 
                     >a {
@@ -325,6 +336,63 @@ main {
                 }
                 .new{
                     margin-bottom: 50px;
+                }
+                input{
+                    position: relative;
+                    &:nth-of-type(2):hover~.passInfo{
+                        display: flex;
+                        transition: .4s ease-in-out;
+                    }
+                }
+                .passInfo{
+                    position: absolute;
+                    display: none;
+                    flex-wrap: wrap;
+                    padding: 20px;
+                    width: 275px;
+                    background-color: rgb(202, 201, 201);
+                    font-size: 16px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    border-radius: 10px;
+                    right: 30%;
+                    z-index: 100;
+                    font-weight: 500;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        right: 8%;
+                        top: -7%;
+                        width: 20px;
+                        height: 20px;
+                        background-color: inherit;
+                        transform: rotate(-45deg);
+                        clip-path: polygon(0 0, 100% 100%, 100% 0);
+                    }
+                    >div{
+                        width: 100%;
+                        span{
+                            // background-color: white;
+                            width: fit-content;
+                            font-weight: 700;
+                            position: relative;
+                            padding-left: 20px;
+                            i{
+                                position: absolute;
+                                font-weight: bolder;
+                                font-size: 16px;
+                                left: 0;    
+                                top: 0;
+                                &:nth-of-type(1){
+                                    display: block;
+                                    color: rgb(120, 0, 0);
+                                }
+                                &:nth-of-type(2){
+                                    color: rgb(30, 151, 30);
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
