@@ -58,25 +58,48 @@ let con3 = false
 let con4 = false
 
 _pass[1].addEventListener('input',(e)=>{
+    console.log(e.target.value);
     if(e.target.value.length>=8){
         con1=true
+        document.querySelectorAll('.con1 i')[0].style.display='none'
+        document.querySelectorAll('.con1 i')[1].style.display='block'
+    }else{
+        con1=false
+        document.querySelectorAll('.con1 i')[1].style.display='none'
+        document.querySelectorAll('.con1 i')[0].style.display='block'
     }
-    if(e.target.value.search('\d')){
+    if(e.target.value.search(/\d/)!=-1){
         con2=true
+        document.querySelectorAll('.con2 i')[0].style.display='none'
+        document.querySelectorAll('.con2 i')[1].style.display='block'
+    }else{
+        con2=false
+        document.querySelectorAll('.con2 i')[1].style.display='none'
+        document.querySelectorAll('.con2 i')[0].style.display='block'
     }
-    if(e.target.value.search('[A-Z]')){
+    if(e.target.value.search('[A-Z]')!=-1){
         con3=true
+        document.querySelectorAll('.con3 i')[0].style.display='none'
+        document.querySelectorAll('.con3 i')[1].style.display='block'
+    }else{
+        con3=false
+        document.querySelectorAll('.con3 i')[1].style.display='none'
+        document.querySelectorAll('.con3 i')[0].style.display='block'
     }
-    if(e.target.value.search('[!@#$%^&*-=+]')){
+    if(e.target.value.search('[!@#$%^&*-=+]')!=-1 && e.target.value.search(/\D/)!=-1){
         con4=true
+        document.querySelectorAll('.con4 i')[0].style.display='none'
+        document.querySelectorAll('.con4 i')[1].style.display='block'
+    }else{
+        con4=false
+        document.querySelectorAll('.con4 i')[1].style.display='none'
+        document.querySelectorAll('.con4 i')[0].style.display='block'
     }
-
 
     if(con1 && con2 && con3 && con4){
         _pass[1].style.border='1px solid green'
         signPass=true
     }else{
-        // alert("Password is not strong enough ! Try something else.")
         _pass[1].style.border='1px solid red'
         signPass=false
     }
